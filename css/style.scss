@@ -86,7 +86,7 @@ body {
     height: 100vh;
     width: 100%;
     width: 100vw;
-    overflow: hidden;
+    overflow-x: hidden;
 
     display: grid;
     grid-template-columns: 1fr;
@@ -101,11 +101,16 @@ body {
         display: grid;
 
         > div {
-            display: none;
+            // display: none;
+            height: 100%;
+            min-height: 100%;
+            width: 100%;
+            width: 100vw;
+            transition: opacity;
         }
-        > div.showing {
-            display: block;
-        }
+        // > div.showing {
+        //     display: block;
+        // }
     }
 
     footer {
@@ -132,6 +137,7 @@ body {
     display: grid;
     place-content: center;
     text-align: center;
+    justify-items: center;
 
     h1 {
         margin-bottom: $mid-space;
@@ -139,6 +145,25 @@ body {
 
     .loading-image{
         width: 40px;
+        justify-self: center;
+    }
+    .messege {
+        width: 70%;
+        width: 70vw;
+    }
+}
+
+.messege-screen {
+    display: grid;
+    place-content: center;
+    text-align: center;
+
+    h1 {
+        margin-bottom: $mid-space;
+    }
+
+    img{
+        justify-self: center;
     }
 }
 
@@ -146,7 +171,7 @@ body {
     align-self: center;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 2.2fr 1fr;
+    grid-template-rows: auto;
     gap: $mid-space 0;
     grid-template-areas: "character""character-select";
     width: 100%;
@@ -157,9 +182,10 @@ body {
         align-self: center;
         grid-area: character;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 200px));
         grid-template-rows: auto 1.5fr 0.5fr;
-        gap: 1px 1px;
+        justify-content: center;
+        gap: $mid-space $small-space;
         grid-template-areas: "title title""image stats""image btn";
 
 
@@ -219,10 +245,13 @@ body {
 
     #character-select {
         grid-area: character-select;
-        grid-template-columns: auto;
-        grid-template-rows: 1fr;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 180px));
+        grid-template-rows: auto;
         justify-content: center;
-        align-items: center;
+        align-content: center;
+        text-align: center;
+        gap:  $small-space $extra-small-space/2;
 
         .character{
             cursor: pointer;

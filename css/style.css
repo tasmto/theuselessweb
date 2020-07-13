@@ -127,7 +127,7 @@ body {
   height: 100vh;
   width: 100%;
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -151,11 +151,12 @@ body main#root {
 }
 
 body main#root > div {
-  display: none;
-}
-
-body main#root > div.showing {
-  display: block;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  width: 100vw;
+  -webkit-transition: opacity;
+  transition: opacity;
 }
 
 body footer {
@@ -183,6 +184,7 @@ body footer {
   display: grid;
   place-content: center;
   text-align: center;
+  justify-items: center;
 }
 
 #loading-screen h1 {
@@ -191,6 +193,29 @@ body footer {
 
 #loading-screen .loading-image {
   width: 40px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+#loading-screen .messege {
+  width: 70%;
+  width: 70vw;
+}
+
+.messege-screen {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.messege-screen h1 {
+  margin-bottom: 30px;
+}
+
+.messege-screen img {
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 
 #character-screen {
@@ -200,8 +225,8 @@ body footer {
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
-  -ms-grid-rows: 2.2fr 1fr;
-      grid-template-rows: 2.2fr 1fr;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
   gap: 30px 0;
       grid-template-areas: "character" "character-select";
   width: 100%;
@@ -217,11 +242,14 @@ body footer {
   grid-area: character;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: (minmax(120px, 200px))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(120px, 200px));
   -ms-grid-rows: auto 1.5fr 0.5fr;
       grid-template-rows: auto 1.5fr 0.5fr;
-  gap: 1px 1px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 30px 20px;
       grid-template-areas: "title title" "image stats" "image btn";
 }
 
@@ -309,16 +337,19 @@ body footer {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: character-select;
-  -ms-grid-columns: auto;
-      grid-template-columns: auto;
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(100px, 180px))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(100px, 180px));
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  text-align: center;
+  gap: 20px 5px;
 }
 
 #character-screen #character-select .character {

@@ -1,8 +1,122 @@
-{ "characters": "<div id='character-screen'><div id='character'><h1 class='title'>Choose an emoji:</h1><img src='./images/🤑.png' alt='' class='character-image'><div class='stats'><h2 class='name'>...</h2><div class='power stat'><p>Power:</p><div class='bars-container'><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span></div></div><div class='speed stat'><p>Speed:</p><div class='bars-container'><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span></div></div><div class='health stat'><p>Health:</p><div class='bars-container'><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span></div></div><div class='special stat'><p>Special:</p><div class='bars-container'><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span></div></div></div><p id='play-btn'><button><span class='content'>Play!</span></button></p></div><div id='character-select'><img id='random' src='./images/random-small.png' alt='' class='character'><img id='🤑' src='./images/🤑-small.png' alt='' class='character'><img id='👹' src='./images/👹-small.png' alt='' class='character'><img id='🦁' src='./images/🦁-small.png' alt='' class='character'><img id='🤢' src='./images/🤢-small.png' alt='' class='character'></div></div>",
-
-"loading": "<div id='loading-screen'><h1>Loading<span class='loading-dots'>...</span></h1><p class='messege'>Did you know: 11% of people are left handed</p> </div>",
-
-"title": "<body><main id='root'><div id='title-screen'><h1 class='logo'><img src='images/mortal-moji-logo.gif' alt='Game logo'></h1><p>Press any button to start!</p></div></main>    <footer><p>Made by <a href='https://tasmto.com' target='_blank'>tasmto</a></p></footer></body>"
-
+{
+    "characters": {
+        "🤑": {
+            "name": "Money Mac",
+            "stats": [
+                5,
+                2,
+                3,
+                3
+            ]
+        },
+        "👹": {
+            "name": "Husky",
+            "stats": [
+                2,
+                3,
+                3,
+                5
+            ]
+        },
+        "🦁": {
+            "name": "Parry",
+            "stats": [
+                3,
+                5,
+                3,
+                2
+            ]
+        },
+        "🤢": {
+            "name": "Pukes Patric (with a c)",
+            "stats": [
+                3,
+                2,
+                3,
+                5
+            ]
+        },
+        "random": {
+            "name": "???",
+            "stats": [
+                0,
+                0,
+                0,
+                0
+            ]
+        }
+    },
+    "screenBlueprints": {
+        "title": {
+            "id": "title-screen",
+            "content": "<h1 class='logo'><img src='images/mortal-moji-logo.gif' alt='Game logo'></h1><p>Press any button to start!</p>",
+            "action": [
+                "titleScreenMoveToNextScreenOnAction ()"
+            ]
+        },
+        "loading": {
+            "id": "loading-screen",
+            "content": "<h1>Loading<span class='loading-dots'>...</span></h1><p class='messege'>Did you know: 11% of people are left handed</p>",
+            "action": [
+                "printRandomFact(didYouKnowFacts, 4000)", "loadingDots(10000)"
+            ]
+        },
+        "characterSelect": {
+            "id": "character-screen",
+            "content": "<div id='character'><h1 class='title'>Choose an emoji:</h1><img src='./images/random.png' alt='' class='character-image'><div class='stats'><h2 class='name'>???</h2><div class=' stat'><p>Power:</p><div class='bars-container'><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span></div></div><div class='speed stat'><p>Speed:</p><div class='bars-container'><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span></div></div><div class='health stat'><p>Health:</p><div class='bars-container'><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span></div></div><div class='special stat'><p>Special:</p><div class='bars-container'><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span><span class='empty'></span></div></div></div><p id='play-btn'><button><span class='content'>Play!</span></button></p></div><div id='character-select'><img id='random' src='./images/random-small.png' alt='' class='character'><img id='🤑' src='./images/🤑-small.png' alt='' class='character'><img id='👹' src='./images/👹-small.png' alt='' class='character'><img id='🦁' src='./images/🦁-small.png' alt='' class='character'><img id='🤢' src='./images/🤢-small.png' alt='' class='character'></div>",
+            "action": [
+                "characterSelectScreenFunctionality ()"]
+        }
+    },
+    "Messeges": {
+        "errorMesseges": {
+            "failedDataFetch": "Terrible news.. Seems like we werent able to the actual game code... But on the bright side; we dicovered the One Piece...",
+            "placeholder": "ooof",
+            "failedToDisplayData": "So, there was a bug building the next step/ screen, I'm not gonna fix it; there just was..."
+        },
+        "didYouKnowFacts": [
+            "The scientific term for brain freeze is “sphenopalatine ganglioneuralgia”.",
+            "Canadians say “sorry” so much that a law was passed in 2009 declaring that an apology can’t be used as evidence of admission to guilt.",
+            "Back when dinosaurs existed, there used to be volcanoes that were erupting on the moon.",
+            "The only letter that doesn’t appear on the periodic table is J.",
+            "One habit of intelligent humans is being easily annoyed by people around them, but saying nothing in order to avoid a meaningless argument.",
+            "If a Polar Bear and a Grizzly Bear mate, their offspring is called a “Pizzy Bear”.",
+            "In 2006, a Coca-Cola employee offered to sell Coca-Cola secrets to Pepsi. Pepsi responded by notifying Coca-Cola.",
+            "There were two AI chatbots created by Facebook to talk to each other, but they were shut down after they started communicating in a language they made for themselves.",
+            "Nintendo trademarked the phrase “It’s on like Donkey Kong” in 2010.",
+            "The famous line in Titanic from Leonardo DiCaprio, “I’m king of the world!” was improvised.",
+            "A single strand of Spaghetti is called a “Spaghetto”.",
+            "There is actually a difference between coffins and caskets – coffins are typically tapered and six-sided, while caskets are rectangular.",
+            "Sunflowers can help clean radioactive soil. Japan is using this to rehabilitate Fukashima. Almost 10,000 packets of sunflower seeds have been sold to the people of the city.",
+            "If you cut down a cactus in Arizona, you’ll be penalized up to 25 years in jail. It is similar to cutting down a protected tree species.",
+            "The Buddha commonly depicted in statues and pictures is a different person entirely. The real Buddha was actually incredibly skinny because of self-deprivation.",
+            "In Colorado, USA, there is still an active volcano. It last erupted about the same time as the pyramids were being built in Egypt.",
+            "The first movie ever to put out a motion-picture soundtrack was Snow White and the Seven Dwarves.",
+            "If you point your car keys to your head, it increases the remote’s signal range. This works by using your brain to act as a radio transmitter.",
+            "In order to protect themselves from poachers, African Elephants have been evolving without tusks, which unfortunately also hurts their species.",
+            "The scientific name for Giant Anteater is Myrmecophaga Tridactyla. This means “ant eating with three fingers”.",
+            "Originally, cigarette filters were made out of cork, the look of which was incorporated into today’s pattern.",
+            "In 1923, a jockey suffered a fatal heart attack but his horse finished and won the race, making him the first and only jockey to win a race after death.",
+            "At birth, a baby panda is smaller than a mouse.",
+            "Iceland does not have a railway system.",
+            "The largest known prime number has 17,425,170 digits. The new prime number is 2 multiplied by itself 57,885,161 times, minus 1.",
+            "Forrest Fenn, an art dealer and author, hid a treasure chest in the Rocky Mountains worth over 1 million dollars. It still has not been found.",
+            "The lead singer of The Offspring started attending school to achieve a doctorate in molecular biology while still in the band. He graduated in May 2017.",
+            "In order to keep Nazis away, a Polish doctor faked a typhus outbreak. This strategy staved 8,000 people.",
+            "After the release of the 1996 film Scream, which involved an anonymous killer calling and murdering his victims, Caller ID usage tripled in the United States.",
+            "The spiked dog collar was invented by the Ancient Greeks to protect their dogs from wolf attacks.",
+            "Jack Daniel (the founder of the whiskey) died from kicking a safe. When he kicked it, he broke his toe which got infected. He eventually died from blood poisoning.",
+            "There is a boss in Metal Gear Solid 3 that can be defeated by not playing the game for a week; or by changing the date.",
+            "The Roman – Persian wars are the longest in history, lasting over 680 years. They began in 54 BC and ended in 628 AD.",
+            "Elton John tried to commit suicide once by sticking his head in an oven with the gas on low and windows open. He was found and stopped by his best friend Bernie Taupin.",
+            "Ed Sheeran bought a ticket to LA with no contacts. He was spotted by Jamie Foxx, who offered him the use of his recording studio and a bed in his Hollywood home for six weeks.",
+            "The first service animals were established in Germany during World War I. References to service animals date as far back as the mid-16th Century.",
+            "An 11-year-old girl proposed the name for Pluto after the Roman god of the Underworld.",
+            "The voice actor of SpongeBob and the voice actor of Karen, Plankton’s computer wife, have been married since 1995.",
+            "An Italian banker, Gilberto Baschiera is considered a modern-day Robin Hood. Over the course of 7 years, he secretly diverted 1 million euros to poorer clients from the wealthy ones so they could qualify for loans. He made no profit and avoided jail in 2018 due to a plea bargain.",
+            "Octopuses and squids have beaks. The beak is made of keratin – the same material that a bird’s beak, and our fingernails are made of.",
+            "An estimated 50% of all gold ever mined on Earth came from a single plateau in South Africa: Witwatersrand.",
+            "There was a 1 in 600 chance you would get this did you know"
+        ]
+    }
 }
-
