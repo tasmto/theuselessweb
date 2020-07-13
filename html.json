@@ -56,9 +56,9 @@
         },
         "loading": {
             "id": "loading-screen",
-            "content": "<h1>Loading<span class='loading-dots'>...</span></h1><p class='messege'>Did you know: 11% of people are left handed</p>",
+            "content": "<img class='loading-image' src='./images/loading.gif'><p class='messege'>Did you know: 11% of people are left handed</p>",
             "action": [
-                "printRandomFact(didYouKnowFacts, 4000)", "loadingDots(10000)"
+                "printRandomFact(didYouKnowFacts, 4000)"
             ]
         },
         "characterSelect": {

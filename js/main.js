@@ -35,35 +35,6 @@ const printErrorMessege = (errorMessege, errorCode) => {
 
 const buildScreen = () => { }
 
-// FOR THE LOADING SCREEN
-const loadingDots = (time) => {
-    const dotsElement = appContainer.querySelector('.loading-dots');
-    let dotsIn = 3;
-    setInterval(function () {
-        switch (dotsIn) {
-            case 3:
-                dotsElement.innerHTML = "";
-                dotsIn = 0;
-                break;
-
-            case 0:
-                dotsElement.innerHTML = ".";
-                dotsIn = 1;
-                break;
-
-            case 1:
-                dotsElement.innerHTML = "..";
-                dotsIn = 2;
-                break;
-
-            case 2:
-                dotsElement.innerHTML = "...";
-                dotsIn = 3;
-                break;
-
-        }
-    }, time)
-}
 const printRandomFact = (messegeList, time) => {
     const messegeElement = appContainer.querySelector('.messege');
 
@@ -73,7 +44,7 @@ const printRandomFact = (messegeList, time) => {
     setInterval(function () {
         // PROBLEM; I CANNOT HAVE FACTS REPEAT; SOLUTION: MAKE A NEW INSTNCE OF THE FACTS THEN EVERYTIME A NEW FCT IS GENERATED REMOVE IT FROM THE NEW FACT ARRAY
         const randomNumber = (Math.random() * (newMessegeArray.length - 0) + 0).toFixed(0);
-        if (!(newMessegeArray === 0)) {
+        if (!(newMessegeArray.length === 0)) {
             messegeElement.innerHTML = newMessegeArray[randomNumber];
             newMessegeArray.splice(randomNumber, 1);
         } else {
