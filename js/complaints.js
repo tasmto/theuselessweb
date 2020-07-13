@@ -46,7 +46,7 @@ const formClicked = () => {
         form.classList.add('hide');
         appContainer.innerHTML = '<div id="loading-screen"><img class="loading-image" src="./images/loading.gif" alt=""></div>';
         setTimeout(function () {
-            appContainer.innerHTML = '<div id="loading-screen"><h1>🤔 That last request... It didnt work,<br> I didnt like your tone of voice in that one. <br> And one more thing:</h1></div>';
+            appContainer.innerHTML = '<div id="loading-screen"><h1>🤔 That last request... It didnt work,<br> I didnt like your tone of voice in that one. <br> And one more thing:</h1><img class="large-image" src="./images/the-rock.gif" alt="" class="hide"></div>';
             setTimeout(function () {
                 appContainer.innerHTML = '<div id="loading-screen"><h1>🤔 That last request... It didnt work,<br> I didnt like your tone of voice in that one. <br> And one more thing:</h1><img class="large-image" src="./images/the-rock.gif" alt=""></div>';
                 setTimeout(function () {
