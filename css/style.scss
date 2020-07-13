@@ -26,9 +26,14 @@ $extra-large-space: 100px;
     }
 }
 
-img{
+img {
     max-width: 100%;
+    &.large-image{
+        width: 300px;
+        height: auto;
+    }
 }
+
 a {
     color: $main;
 
@@ -39,6 +44,11 @@ a {
 
 h1 {
     font-size: 1.75rem;
+}
+
+.hide {
+    display: none;
+    visibility: hidden;
 }
 
 button {
@@ -100,7 +110,7 @@ body {
         grid-area: content;
         display: grid;
 
-        > div {
+        >div {
             // display: none;
             height: 100%;
             min-height: 100%;
@@ -108,6 +118,7 @@ body {
             width: 100vw;
             transition: opacity;
         }
+
         // > div.showing {
         //     display: block;
         // }
@@ -116,10 +127,12 @@ body {
     footer {
         grid-area: footer;
         display: grid;
+        text-align: center;
     }
 }
 
 
+// THE GAME CSS
 #title-screen {
     display: grid;
     place-content: center;
@@ -143,10 +156,11 @@ body {
         margin-bottom: $mid-space;
     }
 
-    .loading-image{
+    .loading-image {
         width: 40px;
         justify-self: center;
     }
+
     .messege {
         width: 70%;
         width: 70vw;
@@ -162,7 +176,7 @@ body {
         margin-bottom: $mid-space;
     }
 
-    img{
+    img {
         justify-self: center;
     }
 }
@@ -208,27 +222,30 @@ body {
             align-self: center;
             justify-content: start;
 
-            .name{
+            .name {
                 margin-bottom: $mid-space;
             }
-            
+
             .stat {
                 margin: $extra-small-space 0;
                 display: grid;
                 grid-template-columns: $mid-space +30 auto;
                 gap: $mid-space;
-                p{
+
+                p {
                     display: inline;
                 }
-                .bars-container{
+
+                .bars-container {
                     display: grid;
                     grid-template-columns: repeat(6, 5px);
                     grid-template-rows: 1fr;
                     gap: 5px;
 
-                    span{
-                        background: $light-grey; 
+                    span {
+                        background: $light-grey;
                         width: 100%;
+
                         &.fill {
                             background: $red;
                         }
@@ -251,10 +268,107 @@ body {
         justify-content: center;
         align-content: center;
         text-align: center;
-        gap:  $small-space $extra-small-space/2;
+        gap: $small-space $extra-small-space/2;
 
-        .character{
+        .character {
             cursor: pointer;
         }
+    }
+}
+
+
+// COMPLAINTS CSS
+
+#complaints {
+    display: grid;
+    place-items: center;
+    gap: $mid-space;
+    text-align: center;
+
+
+    form {
+        display: grid;
+        grid-template-columns: repeat(2, 230px);
+        grid-template-rows: repeat(4, auto);
+        gap: $small-space;
+        grid-template-areas: "name-label name-input""email-label email-input""msg-label msg-input""Btn Btn";
+
+        input,
+        textarea {
+            padding: $extra-small-space;
+            color: $black;
+            font-size: 1.2rem;
+        }
+
+        label {
+            margin-top: $extra-small-space;
+        }
+
+
+        .name-label {
+            grid-area: name-label;
+            justify-self: end;
+        }
+
+        .name-input {
+            grid-area: name-input;
+            justify-self: stretch;
+        }
+
+        .email-label {
+            grid-area: email-label;
+            justify-self: end;
+        }
+
+        .email-input {
+            grid-area: email-input;
+            justify-self: stretch;
+        }
+
+        .msg-label {
+            grid-area: msg-label;
+            justify-self: end;
+        }
+
+        .msg-input {
+            grid-area: msg-input;
+            justify-self: stretch;
+        }
+
+        button {
+            grid-area: Btn;
+            justify-self: center;
+            font-size: 1.2rem;
+            margin-top: $small-space;
+            animation: color-change 350ms steps(10, end) 5 alternate-reverse both;
+            animation-play-state: paused;
+            }
+        }
+    }
+
+
+@keyframes color-change {
+    0% {
+        background: $red;
+    }
+
+    20% {
+        background: $main;
+    }
+
+    40% {
+        background: $light-grey;
+    }
+
+    60% {
+        background: $red;
+    }
+
+    80% {
+        background: $light-grey;
+    }
+
+    100% {
+        background: $main;
     }
 }
